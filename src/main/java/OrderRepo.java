@@ -9,6 +9,7 @@ public class OrderRepo {
     private int orderNumber = 1;
     TrackService trackService = new TrackService();
     Logger logger = new ConsoleLogger();
+
     public void addOrder(List<Product> products) {
         List<Product> list = new ArrayList<>(products);
         Order order = new Order(list, orderNumber);
@@ -18,7 +19,6 @@ public class OrderRepo {
     }
 
     public void deleteOrder(int i) {
-//        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
 
         Optional<Order> result = orderList.parallelStream()
                 .filter(x -> x.getNumber() == i)
@@ -36,22 +36,19 @@ public class OrderRepo {
     }
 
     public void repeatOrder(int i) {
-//        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         addOrder(getOrders().get(i - 1).getProducts());
         logger.log("\nЗаказ №" + i + ". был оформлен повторно под №" + orderList.size() + ".");
     }
 
     public void showOrder(int i) {
 
-//        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
 
         Optional<Order> result = orderList.parallelStream()
                 .filter(x -> x.getNumber() == i)
                 .findAny();
 
         result.ifPresentOrElse(
-                x -> logger.log(""+x+""),
-//                ps::println,
+                x -> logger.log("" + x + ""),
                 () -> logger.log("Нет такого заказа,попробуй ещё!")
         );
     }
@@ -61,7 +58,7 @@ public class OrderRepo {
     }
 
     public void orderList() {
-//        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         for (Order order : orderList) {
             logger.log("Заказ №" + order.getNumber());
         }

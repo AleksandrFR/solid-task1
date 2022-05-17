@@ -14,7 +14,7 @@ public class TrackService {
     }
 
     public void showStatus() {
-//        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         Random random = new Random();
         int rnd = random.nextInt(status.length);
         logger.log("Логистический статус: " + status[rnd]);

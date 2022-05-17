@@ -27,7 +27,6 @@ public class ItemRepo implements RatingService,RecommendService{
 
     public void filtratedItems(Scanner scanner) {
 
-//        PrintStream ps = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         Logger logger = new ConsoleLogger();
         try {
             while (true) {
