@@ -10,8 +10,6 @@ public class ItemRepo implements RatingService,RecommendService{
 
     List<Item> items = new ArrayList<>();
     List<Item> filteredItems = new ArrayList<>();
-//    RatingService ratingService = new RatingService();
-//    RecommendService recommendService = new RecommendService();
     FilterService filter = new FilterService();
     int itemNumber = 1;
 
